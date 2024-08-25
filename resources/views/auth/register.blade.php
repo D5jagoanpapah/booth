@@ -70,7 +70,7 @@
 
               <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
-                  <label for="username" class="form-label">Nama Lengkap </label>
+                  <label for="username" class="form-label">name </label>
                   <input
                     type="text"
                     class="form-control"
@@ -81,12 +81,8 @@
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="email" class="form-label">Alamat</label>
-                  <input type="text" class="form-control" id="email" name="email" placeholder="Masukan Alamat" />
-                </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">NO TELEPON</label>
-                  <input type="text" class="form-control" id="email" name="email" placeholder="Masukan Nomor Telepon" />
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Masukan Email" />
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <label class="form-label" for="password">Password</label>
