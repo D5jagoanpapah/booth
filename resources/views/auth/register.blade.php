@@ -68,22 +68,25 @@
               <!-- /Logo -->
               <h4 class="mb-2 text-center">REGISTRASI 🚀</h4>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3" action="{{ route('register.post') }}" method="POST">
+                @csrf
+
                 <div class="mb-3">
-                  <label for="username" class="form-label">name </label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="username"
-                    name="username"
-                    placeholder="Masukan Nama"
-                    autofocus
-                  />
+                  <label for="name" class="form-label">Nama </label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Masukan Nama" autofocus />
+                  @if ($errors->has('name'))
+                  <span class="text-danger">{{ $errors->first('name') }}</span>
+                  @endif
                 </div>
+
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="Masukan Email" />
+                  <label for="email_address" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email_address" name="email" placeholder="Masukan Email" />
+                  @if ($errors->has('email'))
+                  <span class="text-danger">{{ $errors->first('email') }}</span>
+                  @endif
                 </div>
+
                 <div class="mb-3 form-password-toggle">
                   <label class="form-label" for="password">Password</label>
                   <div class="input-group input-group-merge">
@@ -95,11 +98,14 @@
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
                     />
+                    @if ($errors->has('password'))
+                    <span class="text-danger">{{ $errors->first('password') }}</span>
+                    @endif
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
 
-                <div class="mb-3 form-password-toggle">
+                {{-- <div class="mb-3 form-password-toggle">
                   <label class="form-label" for="password">Ulangi Password</label>
                   <div class="input-group input-group-merge">
                     <input
@@ -112,10 +118,10 @@
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
-                </div>
+                </div> --}}
 
                 <div class="mb-3">
-                    <button class="btn btn-primary d-grid w-100">Sign up</button>
+                    <button type="submit" class="btn btn-primary d-grid w-100">REGISTER</button>
                 </form>
                 
                 <p class="text-center">
