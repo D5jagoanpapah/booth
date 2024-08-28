@@ -74,18 +74,30 @@
           </div>
           
         </div>
-        <div class="mb-3">
+        <div class="mb-1">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" id="remember-me">
             <label class="form-check-label" for="remember-me"> Remember Me </label>
           </div>
         </div>
+
+        
         <div class="mb-3">
           <button class="btn btn-primary d-grid w-100" type="submit">Login</button>
         </div>
+
+
+        <div class="line mb-4"> </div>
+
+        <div class="media-btn text-center">
+            <a href="{{ route('auth.google') }}" class="field google">
+                <img src="{{ asset('assets/images/img-google.png') }}" alt="" class="google-img">
+                <span>Login With Google</span>
+            </a>
+        </div>
       </form>
 
-      <p class="text-center">
+      <p class="text-center mt-4">
         <span>New on our platform?</span>
         <a href="/register">
           <span>Create an account</span>

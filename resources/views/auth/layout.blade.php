@@ -50,6 +50,40 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/assets/manage/assets/js/config.js"></script>
+    <style>
+      .line{
+        position: relative;
+        height: 2px;
+        width: 100%;
+        margin: 20px 0;
+        background-color: rgb(64, 62, 62);
+      }
+
+      .line::before{
+        content: 'OR';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        color: rgb(38, 45, 43);
+        padding: 0 15px;
+      }
+
+   
+   
+      img.google-img{
+        height: 20px;
+        width: 20px;
+        object-fit: cover;
+      }
+
+      a.google{
+        padding: 10px 90px;
+        border: 1px solid #CACACA;
+        border-radius: 5px;
+      }
+    </style>
   </head>
 
   <body>
