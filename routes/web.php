@@ -3,18 +3,19 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\Auth\AuthController;
-
-
-
+use App\Http\Controllers\RajaOngkirController;
 
 Route::get('/app', function () {
     return view('manage.manage');
+});
+Route::get('/', function () {
+    return view('frontend.frontend');
 });
 
 
 
 
-Route::controller(GoogleController::class)->group(function(){
+Route::controller(GoogleController::class)->group(function () {
     Route::get('auth/google', 'redirectToGoogle')->name('auth.google');
     Route::get('auth/google/callback', 'handleGoogleCallback');
 });
@@ -22,10 +23,10 @@ Route::controller(GoogleController::class)->group(function(){
 
 // login dan register
 Route::get('login', [AuthController::class, 'index'])->name('login');
-Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
 Route::get('registration', [AuthController::class, 'registration'])->name('register');
-Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post'); 
-Route::get('dashboard', [AuthController::class, 'dashboard']); 
+Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+Route::get('dashboard', [AuthController::class, 'dashboard']);
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
@@ -39,3 +40,6 @@ Route::get('/register', function () {
 Route::get('/forget', function () {
     return view('auth.forget');
 });
+
+// RajaOngkir
+Route::get('create_location', [RajaOngkirController::class, 'create_location']);

@@ -56,7 +56,7 @@
         height: 2px;
         width: 100%;
         margin: 20px 0;
-        background-color: rgb(64, 62, 62);
+        background-color: rgb(206, 206, 206);
       }
 
       .line::before{
@@ -66,7 +66,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background-color: #fff;
-        color: rgb(38, 45, 43);
+        color: rgb(173, 178, 177);
         padding: 0 15px;
       }
 

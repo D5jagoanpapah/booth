@@ -17,7 +17,6 @@ return new class extends Migration
             $table->integer('province_id');
             $table->string('name');
             $table->string('type');
-            $table->string('city_name');
             $table->string('postal_code');
             $table->timestamps();
         });

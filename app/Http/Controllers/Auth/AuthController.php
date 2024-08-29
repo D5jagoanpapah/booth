@@ -58,7 +58,9 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        // $user_detail = UserDetail();
+        $user_detail = new UserDetail();
+        $user_detail->user_id = $user->id;
+        $user_detail->save();
 
         return redirect("app")->withSuccess('Great! You have Successfully loggedin');
     }
