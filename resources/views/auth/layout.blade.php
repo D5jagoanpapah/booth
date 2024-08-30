@@ -71,7 +71,6 @@
       }
 
    
-   
       img.google-img{
         height: 20px;
         width: 20px;
