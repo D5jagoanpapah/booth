@@ -1,0 +1,43 @@
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 150px;
+    }
+
+    .content-wrapper {
+        margin-top: 50px;
+    }
+
+    .login-left {
+        display: none;
+    }
+
+    .login-right {
+        padding: 40px;
+    }
+
+    .promotion-img {
+        height: 200px !important;
+    }
+
+    #rating h2 {
+        margin-top: -20px !important;
+    }
+    #rating h4 {
+        margin-bottom: 20px !important;
+    }
+
+    .rating-img {
+        height: 280px !important;
+        margin-bottom: 40px !important;
+    }
+
+    .rating-text {
+        display: flex;
+        justify-content: center !important;
+    }
+
+    .divider::before,
+    .divider::after {
+        width: 30%;
+    }
+}

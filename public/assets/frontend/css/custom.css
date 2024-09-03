@@ -1,0 +1,172 @@
+/* Urutan
+    0.Custom
+    */
+
+body {
+    font-family: "Poppins" !important;
+    padding-top: 6rem !important ;
+}
+
+/* 0 */
+
+.color-primary {
+    color: #008080 !important;
+}
+.custom-nav {
+    color: #008080 !important;
+    transition: ease-in-out 1s;
+}
+
+.custom-nav:hover {
+    color: #006666;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+}
+
+.btn-custom {
+    background-color: #008080 !important;
+    transition: ease-in-out 1s;
+}
+
+.btn-custom:hover {
+    background-color: #006666 !important;
+}
+
+.bg-custom {
+    background-color: #008080 !important;
+}
+
+.border-bottom {
+    border-bottom: #008080;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 400px;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-bar input {
+    border-radius: 50px;
+    padding: 10px 20px;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+.login-container {
+    min-height: 86vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-card {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.login-left {
+    background-color: #008080;
+    color: white;
+    padding: 40px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.login-left h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.login-left p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+.login-right {
+    background-color: white;
+    padding: 40px;
+    flex: 1;
+}
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    padding: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.social-btn img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+.divider::before,
+.divider::after {
+    content: "";
+    width: 40%;
+    height: 1px;
+    background-color: #ddd;
+    position: absolute;
+    top: 50%;
+}
+.divider::before {
+    left: 0;
+}
+.divider::after {
+    right: 0;
+}
+.divider span {
+    background-color: white;
+    padding: 0 10px;
+}
+
+.custom-bg {
+    background-color: #008080;
+    color: white;
+    padding: 10px;
+}
+
+.custom-bg .card {
+    background-color: transparent;
+}
+.custom-bg .card-title,
+.custom-bg .card-text {
+    color: white;
+}
+
