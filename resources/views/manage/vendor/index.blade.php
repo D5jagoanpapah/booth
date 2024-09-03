@@ -3,7 +3,7 @@
 @section('content')
 
     <h4 class="fw-bold py-3 ">Vendors</h4>
-    <a href="{{ route('user.add') }}" class="btn btn-primary mb-4">Tambah Vendor</a>
+    <a href="{{ route('vendor.add') }}" class="btn btn-primary mb-4">Tambah Vendor</a>
 
     <!-- Basic Bootstrap Table -->
     <div class="card">
@@ -12,34 +12,35 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Nama</th>
-              <th>Email</th>
-
+              <th>Nama Pemilik</th>
+              <th>Nama Perusahaan</th>
+              <th>Alamat</th>
+              <th>Kontak</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody class="table-border-bottom-0">
-            {{-- @foreach ($users as $user) --}}
+            @foreach ($vendors as $vendor)
             <tr>
-              <td><i class="fab fa-angular fa-lg text-danger me-3"></i></td>
-              <td></td>
+              <td>{{ $vendor->user->name }}</td>
+              <td>{{ $vendor->company_name }}</td>
+              <td>{{ $vendor->address->address . ', ' . $vendor->address->district . ', '. $vendor->address->city->type . '. '.  $vendor->address->city->name .', '. $vendor->address->province->name }}</td>
+              <td>{{ $vendor->contact_number }}</td>
               <td>
-                  <div class="dropdown">
-                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                      <i class="bx bx-dots-vertical-rounded"></i>
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href=""
-                        ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                      >
-                      <a class="dropdown-item" href="javascript:void(0);"
-                        ><i class="bx bx-trash me-1"></i> Delete</a
-                      >
-                    </div>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-primary btn-sm" href="{{ route('vendor.edit', $vendor->id) }}"
+                    ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                  >
+                  <form action="{{ route('vendor.delete', $vendor->id) }}" method="post">
+                    @csrf
+                    @method('delete')
+                    <button class="btn btn-danger btn-sm"><i class="bx bx-trash me-1"></i> Delete</button>
+                  </form>
+                </div>
                   </div>
               </td>
             </tr>
-            {{-- @endforeach --}}
+            @endforeach
           </tbody>
         </table>
       </div>

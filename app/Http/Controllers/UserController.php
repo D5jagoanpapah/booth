@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\Province;
 use App\Models\User;
+use App\Models\Address;
 use App\Models\UserDetail;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -53,7 +54,6 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
 
-
         if ($request->password != null) {
             $user->password = $request->password;
         }
@@ -78,12 +78,6 @@ class UserController extends Controller
         $user->delete();
 
         return redirect('user')->with('success', "Product deleted success");
-    }
-
-    function address(User $user)
-    {
-        $provinces = Province::all();
-        return view('manage.user_address.index', compact('user', 'provinces'));
     }
 
     function get_cities(Request $request)
