@@ -32,7 +32,7 @@
               </td>       --}}
               <td>
                 <div class="d-flex gap-2">
-                  <a class="btn btn-info btn-sm" href="{{ route('user.address', $user->id) }}"
+                  <a class="btn btn-info btn-sm" href="{{ route('user.address.index', $user->id) }}"
                     ><i class="bx bx-home-alt me-1"></i> Alamat</a
                   >
                   <a class="btn btn-primary btn-sm" href="{{ route('user.edit', $user->id) }}"

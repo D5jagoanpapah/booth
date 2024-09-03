@@ -1,11 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GoogleController;
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\RajaOngkirController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\BoothController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\RajaOngkirController;
+use App\Http\Controllers\UserAddressController;
 
 // landing page
 Route::get('/', function () {
@@ -17,16 +20,7 @@ Route::get('/app', function () {
     return view('manage.dashboard.index');
 });
 
-// admin page -- booth
-Route::get('/booth', function () {
-    return view('manage.booth.index');
-});
-Route::get('/booth/{booth}/add', function () {
-    return view('manage.booth.add');
-});
-Route::get('/booth/{booth}/edit', function () {
-    return view('manage.booth.edit');
-});
+
 
 // admin page -- users
 Route::get('user', [UserController::class, 'index'])->name('user');
@@ -37,15 +31,29 @@ Route::put('user/{user}/update', [UserController::class, 'update'])->name('user.
 Route::delete('user/{user}/delete', [UserController::class, 'destroy'])->name('user.delete');
 
 // admin page -- users address
-Route::get('user/{user}/address', [UserController::class, 'address'])->name('user.address');
+Route::get('user/{user}/address', [UserAddressController::class, 'index'])->name('user.address.index');
+Route::post('user/{user}/address', [UserAddressController::class, 'store'])->name('user.address.store');
 Route::post('user/address/get_cities', [UserController::class, 'get_cities'])->name('user.address.get_cities');
-
-
 
 // admin page -- vendors
 Route::get('vendor', [VendorController::class, 'index'])->name('vendor');
+Route::get('vendor/add', [VendorController::class, 'add'])->name('vendor.add');
+Route::post('vendor/insert', [VendorController::class, 'insert'])->name('vendor.insert');
+Route::post('vendor/get_address', [VendorController::class, 'get_address'])->name('vendor.get_address');
+Route::get('vendor/{vendor}/edit', [VendorController::class, 'edit'])->name('vendor.edit');
+Route::put('vendor/{vendor}/update', [VendorController::class, 'update'])->name('vendor.update');
+Route::delete('vendor/{vendor}/delete', [VendorController::class, 'destroy'])->name('vendor.delete');
 
+// admin page -- Category Booth
+Route::get('booth_category', [CategoriesController::class, 'index'])->name('booth_category');
+Route::get('booth_category/add', [CategoriesController::class, 'add'])->name('booth_category.add');
+Route::post('booth_category/insert', [CategoriesController::class, 'insert'])->name('booth_category.insert');
+Route::get('booth_category/{category}/edit', [CategoriesController::class, 'edit'])->name('booth_category.edit');
+Route::put('booth_category/{category}', [CategoriesController::class, 'update'])->name('booth_category.update');
+Route::delete('booth_category/{category}/delete', [CategoriesController::class, 'destroy'])->name('booth_category.delete');
 
+// admin page --  Booth
+Route::get('booth', [BoothController::class, 'index'])->name('booth_category');
 
 
 
@@ -80,12 +88,3 @@ Route::get('/forget', function () {
 // RajaOngkir
 Route::get('create_location', [RajaOngkirController::class, 'create_location']);
 
-// Route::get('/user', function () {
-    //     return view('manage.user.index');
-    // });
-    // Route::get('/user/{user}/add', function () {
-        //     return view('manage.user.add');
-        // });
-        // Route::get('/user/{user}/edit', function () {
-            //     return view('manage.user.edit');
-            // });
