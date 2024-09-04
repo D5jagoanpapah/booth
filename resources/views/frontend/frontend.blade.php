@@ -59,10 +59,10 @@
     </nav>
     <div class="container content-wrapper">
         <!-- Carousel -->
-        <div id="promoCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div id="promoCarousel" class="carousel slide" data-aos="fade-right" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <!-- Slide 1 -->
-                <div class="carousel-item active">
+                <div class="carousel-item active" >
                     <img src="../../../public/assets/images/carousel/carousel1.png" class="d-block w-100 rounded-4" alt="Promo 1">
                 </div>
 
@@ -98,7 +98,7 @@
     </div>
     <!-- Produk -->
     <div class="container py-5">
-        <h2 class="mb-3 fw-bold">Booth Disewakan</h2>
+        <h2 class="mb-3 fw-bold ">Booth Disewakan</h2>
         <div class="row g-4">
             <!-- Rekomendasi -->
             <div class="col-md-3">
@@ -232,6 +232,11 @@
 
     <!-- Custom JS -->
     <script src="../../../public/assets/frontend/js/custom.js"></script>
+    <!-- Animation On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+  AOS.init();
+  </script>
 </body>
 
 </html>
