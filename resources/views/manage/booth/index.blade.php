@@ -3,7 +3,7 @@
 @section('content')
 
     <h4 class="fw-bold py-3 ">Booth</h4>
-    <a href="/booth/1/add" class="btn btn-primary mb-4">Tambah Booth</a>
+    <a href="booth/add" class="btn btn-primary mb-4">Tambah Booth</a>
 
     <!-- Basic Bootstrap Table -->
     <div class="card">
@@ -12,46 +12,34 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Vendor_ID</th>
+              <th>Vendor</th>
               <th>Nama</th>
-              <th>Deskripsi</th>
               <th>Harga</th>
-              <th>Alamat</th>
               <th>Ukuran</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody class="table-border-bottom-0">
+            @foreach ($booths as $booth)
             <tr>
-              <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
-              <td>Albert Cook</td>
-              <td>
-                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                  <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
-                    <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                  </li>
-                </ul>
-              </td>
-              <td><span class="badge bg-label-primary me-1">Active</span></td>
-              <td>alo  </td>
-            <td>alo</td>
+              <td>{{ $booth->vendor_id }}</td>
+              <td>{{ $booth->name }}</td>
+              <td>{{ $booth->price }}</td>
+              <td>{{ $booth->size }}</td>
             <td>
-                  <div class="dropdown">
-                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                      <i class="bx bx-dots-vertical-rounded"></i>
-                    </button>
-                    <div class="dropdown-menu">
-                      <a class="dropdown-item" href="/booth/1/edit"
-                        ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                      >
-                      <a class="dropdown-item" href="javascript:void(0);"
-                        ><i class="bx bx-trash me-1"></i> Delete</a
-                      >
-                    </div>
-                  </div>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary btn-sm" href="{{ route('booth.edit', $booth->id) }}"
+                  ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                >
+                <form action="{{ route('booth.delete', $booth->id) }}" method="post">
+                  @csrf
+                  @method('delete')
+                  <button class="btn btn-danger btn-sm"><i class="bx bx-trash me-1"></i> Delete</button>
+                </form>
+              </div>
               </td>
             </tr>
-          
+            @endforeach
           </tbody>
         </table>
       </div>

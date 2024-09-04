@@ -12,7 +12,7 @@ use App\Http\Controllers\UserAddressController;
 
 // landing page
 Route::get('/', function () {
-    return view('frontend.frontend');
+    return view('frontend.home.index');
 });
 
 // admin page
@@ -54,6 +54,11 @@ Route::delete('booth_category/{category}/delete', [CategoriesController::class, 
 
 // admin page --  Booth
 Route::get('booth', [BoothController::class, 'index'])->name('booth_category');
+Route::get('booth/add', [BoothController::class, 'add'])->name('booth.add');
+Route::post('booth/insert', [BoothController::class, 'insert'])->name('booth.insert');
+Route::get('booth/{booth}/edit', [BoothController::class, 'edit'])->name('booth.edit');
+Route::put('booth/{booth}/update', [BoothController::class, 'update'])->name('booth.update');
+Route::delete('booth/{booth}/delete', [BoothController::class, 'destroy'])->name('booth.delete');
 
 
 
@@ -87,4 +92,3 @@ Route::get('/forget', function () {
 
 // RajaOngkir
 Route::get('create_location', [RajaOngkirController::class, 'create_location']);
-

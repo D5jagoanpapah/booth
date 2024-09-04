@@ -11,87 +11,57 @@
     <div class="card mb-4">
       <h5 class="card-header">Edit Booth</h5>
       <div class="card-body">
+        <form action="{{ route('booth.update', $booth->id) }}" method="POST" enctype="multipart/form-data">
+          @method('PUT')
+          @csrf
+
+          <div class="mb-3">
+            <label for="" class="col-form-label">Vendor</label>
+            <p>{{ $booth->vendor->company_name }}</p>
+           </div>  
+           
+           <div class="mb-3">
+             <label for="exampleFormControlInput1" class="form-label">Nama Booth</label>
+             <input
+             type="text"
+             name="name"
+             class="form-control"
+             id="exampleFormControlInput1"
+             value="{{ $booth->name }}"
+             />
+            </div>
+            
+          <div class="mb-3">
+          <label for="exampleFormControlReadOnlyInput1" class="form-label">Deskripsi</label>
+          <textarea class="form-control" name="description" id="" rows="4">{{ $booth->description }}</textarea>
+          </div>
+
         <div class="mb-3">
-          <label for="exampleFormControlReadOnlyInput1" class="form-label">Vendor Id</label>
+          <label for="exampleFormControlInput1" class="form-label">Harga</label>
           <input
-            class="form-control"
-            type="text"
-            id="exampleFormControlReadOnlyInput1"
-            placeholder="Readonly input here..."
-            readonly
+          type="text"
+          name="price"
+          class="form-control"
+          id="exampleFormControlInput1"
+          value="{{ $booth->price }}"
           />
         </div>
+        
+     
         <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Nama Booth</label>
+          <label for="exampleFormControlInput1" class="form-label">Ukuran</label>
           <input
             type="text"
+            name="size"
             class="form-control"
             id="exampleFormControlInput1"
-            placeholder="name@example.com"
+            value="{{ $booth->size }}"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Email address</label>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="name@example.com"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="exampleFormControlReadOnlyInputPlain1" class="form-label">Read plain</label>
-          <input
-            type="text"
-            readonly
-            class="form-control-plaintext"
-            id="exampleFormControlReadOnlyInputPlain1"
-            value="email@example.com"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="exampleFormControlSelect1" class="form-label">Example select</label>
-          <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="exampleDataList" class="form-label">Datalist example</label>
-          <input
-            class="form-control"
-            list="datalistOptions"
-            id="exampleDataList"
-            placeholder="Type to search..."
-          />
-          <datalist id="datalistOptions">
-            <option value="San Francisco"></option>
-            <option value="New York"></option>
-            <option value="Seattle"></option>
-            <option value="Los Angeles"></option>
-            <option value="Chicago"></option>
-          </datalist>
-        </div>
-        <div class="mb-3">
-          <label for="exampleFormControlSelect2" class="form-label">Example multiple select</label>
-          <select
-            multiple
-            class="form-select"
-            id="exampleFormControlSelect2"
-            aria-label="Multiple select example"
-          >
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-        </div>
-        <div>
-          <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
+
+        <button type="submit" class="btn btn-primary">Buat</button>
+
+        </form>
       </div>
     </div>
   </div>
