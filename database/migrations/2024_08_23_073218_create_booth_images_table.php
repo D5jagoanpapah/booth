@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('booth_images', function (Blueprint $table) {
             $table->id();
             $table->integer('booth_id');
-            $table->string('image_url');
+            $table->string('image_url')->nullable();
             $table->timestamps();
         });
     }

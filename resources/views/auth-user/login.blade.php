@@ -4,8 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home | Brobooth Found a suitable booth for you</title>
 <!-- CSS File -->
-<link rel="stylesheet" href="../../../public/assets/frontend/css/custom.css">
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" href="/assets/frontend/css/custom.css">
+<link rel="stylesheet" href="/assets/frontend/css/responsive.css" />
 <!-- CSS Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <!-- Fonts -->
@@ -28,24 +28,30 @@
             <div class="mb-3">
                 <h2 class="fw-bold color-primary">Silahkan Login!</h2>
             </div>
+            <form>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Masukkan Email">
+                <input type="email" class="form-control" placeholder="Masukkan Email">
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Masukkan Password">
+                <input type="password" class="form-control" placeholder="Masukkan Password">
             </div>
+            <button type="submit" class="btn btn-custom text-white w-100 rounded-5">Login</button>
+            
             <div class="divider">
                 <span>Atau</span>
             </div>
-            <form>
-                <div class="social-btn">
+
+            <div class="social-btn">
+                <a href="{{ route('auth.google') }}">
                     <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google Icon">
-                    <span>Lanjutkan dengan Google</span>
-                </div>
-                <button type="submit" class="btn btn-custom text-white w-100 rounded-5">Login</button>
+                    <span>Buat akun dengan Google</span>
+                </a>
+            </div>    
+               
+
             </form>
             <div class="text-center mt-3">
-                <span>Belum memiliki akun? <a href="../../../resources/views/auth-user/register.blade.php" class="color-primary">Register disini</a></span>
+                <span>Belum memiliki akun? <a href="{{ route('user-register') }}" class="color-primary">Register disini</a></span>
             </div>
         </div>
     </div>
@@ -56,7 +62,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <!-- Swiper JS -->
-    <script src="../../../public/assets/frontend/js/custom.js"></script>
+    <script src=""></script>
     <!-- Initialize Swiper -->
 
 </body>

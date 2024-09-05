@@ -4,8 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home | Brobooth Found a suitable booth for you</title>
 <!-- CSS File -->
-<link rel="stylesheet" href="../../../../public/assets/frontend/css/custom.css">
-<link rel="stylesheet" href="../../../../public/assets/frontend/css/responsive.css">
+<link rel="stylesheet" href="/assets/frontend/css/custom.css">
+<link rel="stylesheet" href="/assets/frontend/css/responsive.css">
 <!-- CSS Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <!-- Fonts -->
@@ -32,12 +32,6 @@
                 <ul class="nav mx-auto">
                     <li class="nav-item">
                         <a class="nav-link custom-nav color-primary" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-nav color-primary" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-nav color-primary" href="#">Pricing</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle custom-nav color-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

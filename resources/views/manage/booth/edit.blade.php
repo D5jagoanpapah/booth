@@ -59,6 +59,25 @@
           />
         </div>
 
+        <div class="mb-3">
+          <div class="row">
+            <div class="col-lg-12">
+              <label for="formFile" class="form-label">Gambar Booth</label>
+              <input class="form-control" type="file" id="formFile" name="image_url[]" multiple />
+            </div>
+          </div>
+          <div class="row">
+            @foreach($booth->images as $image)
+            <div class="col-lg-2">
+              <img src="{{ Storage::url($image->image_url) }}" alt="" class="shadow rounded mt-3 w-100" style="width: 300px; height: 150px; object-fit: cover;">
+              @if ($booth->images->count() > 1)
+              <a href="{{ route('booth.images.delete', $image->id) }}" class="btn btn-danger btn-sm w-100 mt-3">Hapus</a>
+              @endif
+            </div>
+            @endforeach
+          </div>
+        </div>
+
         <button type="submit" class="btn btn-primary">Buat</button>
 
         </form>

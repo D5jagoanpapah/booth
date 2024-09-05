@@ -2,18 +2,28 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BoothController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\BoothController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\RajaOngkirController;
 use App\Http\Controllers\UserAddressController;
 
 // landing page
-Route::get('/', function () {
-    return view('frontend.home.index');
-});
+Route::get('/', [FrontendController::class, 'index'])->name('view');
+Route::get('viewpayment', [FrontendController::class, 'viewpayment'])->name('view.payment');
+Route::get('viewbooth', [FrontendController::class, 'viewbooth'])->name('view.booth');
+Route::get('viewboothcategory', [FrontendController::class, 'viewboothcategory'])->name('view.category');
+
+
+// landing page -login and regsiter
+Route::get('login-user', [FrontendController::class, 'userlog'])->name('user-login');
+Route::get('regis-user', [FrontendController::class, 'userregis'])->name('user-register');
+
+
+
 
 // admin page
 Route::get('/app', function () {
@@ -59,6 +69,7 @@ Route::post('booth/insert', [BoothController::class, 'insert'])->name('booth.ins
 Route::get('booth/{booth}/edit', [BoothController::class, 'edit'])->name('booth.edit');
 Route::put('booth/{booth}/update', [BoothController::class, 'update'])->name('booth.update');
 Route::delete('booth/{booth}/delete', [BoothController::class, 'destroy'])->name('booth.delete');
+Route::get('booth/images/{booth_image}/delete', [BoothController::class, 'destroy_image'])->name('booth.images.delete');
 
 
 

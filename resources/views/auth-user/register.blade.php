@@ -4,8 +4,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home | Brobooth Found a suitable booth for you</title>
 <!-- CSS File -->
-<link rel="stylesheet" href="../../../public/assets/frontend/css/custom.css">
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<link rel="stylesheet" href="/assets/frontend/css/custom.css">
+<link rel="stylesheet" href="/assets/frontend/css/responsive.css" />
 <!-- CSS Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <!-- Fonts -->
@@ -39,18 +39,20 @@
             <div class="mb-3">
                 <input type="password" class="form-control" placeholder="Masukkan Password">
             </div> 
+            <button type="submit" class="btn btn-custom text-white w-100 rounded-5">Register</button>
             <div class="divider">
                 <span>Atau</span>
             </div>
             <form>
                 <div class="social-btn">
-                    <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google Icon">
-                    <span>Buat akun dengan Google</span>
+                    <a href="{{ route('auth.google') }}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google Icon">
+                        <span>Buat akun dengan Google</span>
+                    </a>
                 </div>      
-                <button type="submit" class="btn btn-custom text-white w-100 rounded-5">Register</button>
             </form>
             <div class="text-center mt-3">
-                <span>Sudah memiliki akun? <a href="../../../resources/views/auth-user/login.blade.php" class="color-primary">Login disini</a></span>
+                <span>Sudah memiliki akun? <a href="{{ route('user-login') }}" class="color-primary">Login disini</a></span>
             </div>
         </div>
     </div>

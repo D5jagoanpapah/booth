@@ -60,6 +60,11 @@
           />
         </div>
 
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Gambar Booth</label>
+          <input class="form-control" type="file" id="formFile" name="image_url[]" multiple />
+        </div>
+
         <button type="submit" class="btn btn-primary">Buat</button>
 
         </form>

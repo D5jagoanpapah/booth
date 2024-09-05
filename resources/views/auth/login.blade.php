@@ -91,7 +91,7 @@
 
         <div class="media-btn text-center">
             <a href="{{ route('auth.google') }}" class="field google">
-                <img src="{{ asset('assets/images/img-google.png') }}" alt="" class="google-img">
+                <img src="{{ asset('assets/manage/images/img-google.png') }}" alt="" class="google-img">
                 <span>Login With Google</span>
             </a>
         </div>

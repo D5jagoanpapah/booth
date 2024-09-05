@@ -1,5 +1,8 @@
 @extends('frontend.layout')
 
+
+
+
 @section('content')
 
 <div class="container content-wrapper">
@@ -46,23 +49,35 @@
     <h2 class="mb-3 fw-bold">Booth Disewakan</h2>
     <div class="row g-4">
         <!-- Rekomendasi -->
+        @foreach ($booths as $booth)
+        
         <div class="col-md-3">
             <div class="card shadow-sm">
                 <div class="position-relative">
-                    <img src="/assets/frontend/images/bengkelbooth1.jpg_1724293599429.jpg" class="card-img-top">
+                    
+                    @foreach ($booth->images as $image)
+                    <img src="{{ Storage::url($image->image_url) }}" class="card-img-top">
+                    @endforeach
+                    
                 </div>
                 <div class="card-body">
-                    <a href="../../../resources/views/frontend/booth/index.blade.php" class="text-decoration-none">
-                        <h5 class="card-title text-dark">Booth Minuman teh solo</h5>
-                        <p class="card-text color-primary">Rp 000.000 / Bulan</p>
+                    <a href="{{ url('viewbooth' . $booth->name) }}" class="text-decoration-none">
+                        <h5 class="card-title text-dark"> {{ $booth->name }}</h5>
+                        <p class="card-text color-primary">Rp. {{ $booth->price }} / Bulan</p>
                         <span class="badge bg-custom text-white">Sewa</span>
-                        <p class="text-muted mt-2"><i class="bi bi-geo-alt"></i> Kota Jakarta Selatan</p>
+                        
+                        {{-- @foreach ($vendors as $vendor)
+                        <p class="text-muted mt-2"><i class="bi bi-geo-alt"></i>  {{ $vendor->contact_number }}</p>
+                        @endforeach --}}
                     </a>
                 </div>
             </div>
         </div>
+
+        @endforeach
     </div>
 </div>
+
 <!-- Promoosi -->
 <div class="custom-bg">
     <div class="container py-5">

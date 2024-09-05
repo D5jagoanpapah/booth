@@ -34,13 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link custom-nav color-primary" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-nav color-primary" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-nav color-primary" href="#">Pricing</a>
+                        <a class="nav-link custom-nav color-primary" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle custom-nav color-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,7 +48,7 @@
                 </ul>
                 <ul class="nav">
                     <li class="nav-item ms-auto">
-                        <a class="nav-link color-primary btn btn-custom text-white rounded-5" href="../auth-user/login.blade.php"><i class="bi bi-person-circle"></i> Log-in</a>
+                        <a class="nav-link color-primary btn btn-custom text-white rounded-5" href="{{ route('user-login') }}"><i class="bi bi-person-circle"></i> Log-in</a>
                     </li>
                 </ul>
             </div>

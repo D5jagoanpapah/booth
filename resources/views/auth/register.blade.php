@@ -124,6 +124,15 @@
                     <button type="submit" class="btn btn-primary d-grid w-100">REGISTER</button>
                 </form>
                 
+                <div class="line mb-4"> </div>
+
+                <div class="media-btn text-center mb-4">
+                    <a href="{{ route('auth.google') }}" class="field google">
+                        <img src="{{ asset('assets/manage/images/img-google.png') }}" alt="" class="google-img">
+                        <span>Login With Google</span>
+                    </a>
+                </div>
+
                 <p class="text-center">
                     <span>Already have an account?</span>
                     <a href="/login">
