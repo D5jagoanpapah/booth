@@ -61,14 +61,12 @@
                     
                 </div>
                 <div class="card-body">
-                    <a href="{{ url('viewbooth' . $booth->name) }}" class="text-decoration-none">
+                    <a href="{{ route('view.booth',   $booth->id) }}" class="text-decoration-none">
                         <h5 class="card-title text-dark"> {{ $booth->name }}</h5>
-                        <p class="card-text color-primary">Rp. {{ $booth->price }} / Bulan</p>
+                        <p class="card-text color-primary">Rp{{ number_format($booth->price, '0', '.', '.') }}/Bulan</p>
                         <span class="badge bg-custom text-white">Sewa</span>
                         
-                        {{-- @foreach ($vendors as $vendor)
-                        <p class="text-muted mt-2"><i class="bi bi-geo-alt"></i>  {{ $vendor->contact_number }}</p>
-                        @endforeach --}}
+                        <p class="text-muted mt-2"><i class="bi bi-geo-alt"></i> {{ $booth?->vendor?->address->district . ', ' . $booth->vendor->address->city->type . '. ' .  $booth->vendor->address->city->name . ', ' . $booth->vendor->address->province->name }}</p>
                     </a>
                 </div>
             </div>
@@ -118,13 +116,29 @@
                     <div class="card-body">
                         <img src="/assets/frontend/images/promosi/setuju.png" class="mb-3 img-fluid promotion-img">
                         <h5 class="card-title fw-bold mb-3">Booth anda siap diantar</h5>
-                        <p class="card-text">Booth Anda siap diantar! Terima kasih telah memilih Brobooth, dan semoga acara Anda sukses!</p>
+                        <p class="card-text">Booth Anda siap diantar! Terima kasih telah memilih Brobooth, dan semoga bisnis Anda sukses!</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+  <!-- About -->
+  <div class="container py-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h1 class="fw-bold mb-4 color-primary">Tentang Bro Booth.</h1>
+            <p class="color-primary mb-4">
+                <strong>Brobooth.</strong> adalah platform inovatif yang diciptakan untuk memudahkan UMKM di Indonesia dalam mencari dan menyewa booth berkualitas dari berbagai vendor terpercaya.
+            </p>
+        </div>
+        <div class="mb-3 text-center">
+            <a href="{{ route('booth.about') }}" class="btn btn-custom rounded-5 d-inline-block text-white ">Lihat Selengkapnya</a>
+        </div>
+    </div>
+</div>
+
 <!-- Rating -->
 <section id="rating">
     <div class="container py-5">

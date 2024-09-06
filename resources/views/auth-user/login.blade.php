@@ -28,13 +28,22 @@
             <div class="mb-3">
                 <h2 class="fw-bold color-primary">Silahkan Login!</h2>
             </div>
-            <form>
+        <form  id="formAuthentication" action="{{ route('login.post') }}" method="POST">
+            @csrf
+            
             <div class="mb-3">
-                <input type="email" class="form-control" placeholder="Masukkan Email">
+                <input id="email_address" name="email" class="form-control" placeholder="Masukkan Email">
+                @if ($errors->has('email'))
+                <span class="text-danger">{{ $errors->first('email') }}</span>
+                @endif
             </div>
             <div class="mb-3">
-                <input type="password" class="form-control" placeholder="Masukkan Password">
+                <input type="password" id="password" class="form-control" name="password" placeholder="Masukkan Password">
+                @if ($errors->has('password'))
+                <span class="text-danger">{{ $errors->first('password') }}</span>
+                @endif
             </div>
+            
             <button type="submit" class="btn btn-custom text-white w-100 rounded-5">Login</button>
             
             <div class="divider">
@@ -47,9 +56,9 @@
                     <span>Buat akun dengan Google</span>
                 </a>
             </div>    
+        </form>
                
 
-            </form>
             <div class="text-center mt-3">
                 <span>Belum memiliki akun? <a href="{{ route('user-register') }}" class="color-primary">Register disini</a></span>
             </div>

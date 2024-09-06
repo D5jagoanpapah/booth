@@ -1,6 +1,5 @@
 @extends('manage.layout')
-   
-   
+
 @section('content')
 
    <!-- Basic Layout -->
@@ -18,14 +17,21 @@
         <div class="card-body">
           <form action="{{ route('booth_category.insert') }}" method="POST" enctype="multipart/form-data">
             @csrf
+         
             <div class="mb-3">
               <label class="form-label" for="basic-default-fullname">Nama Kategori</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="" />
+              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="" />
+              @error('name')
+                  <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
             </div>
 
             <div class="mb-3">
                 <label for="" class="col-form-label">Deskripsi</label>
-                <textarea class="form-control" name="description" id="" rows="4"></textarea>
+                <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="" rows="4"></textarea>
+                @error('description')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
               
             <button type="submit" class="btn btn-primary">Buat</button>
@@ -37,4 +43,4 @@
       </div>
     </div>
 
-    @stop
+@stop

@@ -1,6 +1,5 @@
 @extends('manage.layout')
-   
-   
+
 @section('content')
 
    <!-- Basic Layout -->
@@ -20,7 +19,10 @@
             @csrf
             <div class="mb-3">
               <label class="form-label" for="basic-default-fullname">Nama Lengkap</label>
-              <input type="text" class="form-control" value="{{ $user->name }}" id="name" name="name" placeholder="" />
+              <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ $user->name }}" id="name" name="name" placeholder="" />
+              @error('name')
+                <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
             </div>
             <div class="mb-3">
               <label class="form-label" for="basic-default-email">Email</label>
@@ -29,18 +31,24 @@
                   type="email"
                   id="email"
                   name="email"
-                  class="form-control"
+                  class="form-control @error('email') is-invalid @enderror"
                   value="{{ $user->email }}"
                   placeholder=""
                   aria-describedby="basic-default-email2"
                 />
+                @error('email')
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
               
             </div>
 
             <div class="mb-3">
               <label class="form-label" for="basic-default-company">Password</label>
-              <input type="password" class="form-control" id="password" name="password" placeholder="" /> 
+              <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="" /> 
+              @error('password')
+                <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
             </div>
 
             <div class="mb-3">
@@ -52,7 +60,10 @@
                 </div>
                 <div class="col-lg-10">
                   <label for="formFile" class="form-label">Masukan Foto KTP Baru</label>
-                  <input class="form-control" type="file" id="formFile" name="ktp_image_url" />
+                  <input class="form-control @error('ktp_image_url') is-invalid @enderror" type="file" id="formFile" name="ktp_image_url" />
+                  @error('ktp_image_url')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                  @enderror
                 </div>
               </div>
             </div>
@@ -63,4 +74,4 @@
       </div>
     </div>
 
-    @stop
+@stop

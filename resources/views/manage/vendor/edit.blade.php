@@ -24,42 +24,48 @@
             </div>
             
             <div class="mb-3">
-                <label for="" class="col-form-label">Pilih Alamat</label>
-                <div class="row">
-                    <div class="col-lg-4">
-                        @foreach ($addresses as $address)
-                        <div class="_address">
-                            <input type="radio" class="btn-check" name="address_id" id="option{{ $address->id }}" autocomplete="off" value="{{$address->id }}" {{ $address->id == $vendor->address_id ? 'checked' : '' }}>
-                            <label class="btn btn-outline-primary w-100 mb-1" for="option{{ $address->id }}">{{ $address->address . ', ' . $address->district . ', '. $address->city->type . '. '.  $address->city->name .', '. $address->province->name }}</label>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="mb-3">
               <label class="form-label" for="basic-default-fullname">Nama Perusahaan</label>
-              <input type="text" class="form-control" id="company_name"   value="{{ $vendor->company_name }}" name="company_name" placeholder="" />
-            </div>
-
-
-            <div class="mb-3">
+              <input type="text" class="form-control" id="company_name" value="{{ $vendor->company_name }}" name="company_name" placeholder="" />
+              @error('company_name')
+                  <div class="text-danger">{{ $message }}</div>
+              @enderror
+          </div>
+          
+          <div class="mb-3">
+              <label for="" class="col-form-label">Pilih Alamat</label>
+              <div class="row">
+                  <div class="col-lg-4">
+                      @foreach ($addresses as $address)
+                      <div class="_address">
+                          <input type="radio" class="btn-check" name="address_id" id="option{{ $address->id }}" autocomplete="off" value="{{$address->id }}" {{ $address->id == $vendor->address_id ? 'checked' : '' }}>
+                          <label class="btn btn-outline-primary w-100 mb-1" for="option{{ $address->id }}">{{ $address->address . ', ' . $address->district . ', '. $address->city->type . '. '.  $address->city->name .', '. $address->province->name }}</label>
+                      </div>
+                      @endforeach
+                  </div>
+              </div>
+              @error('address_id')
+                  <div class="text-danger">{{ $message }}</div>
+              @enderror
+          </div>
+          
+          <div class="mb-3">
               <label class="form-label" for="basic-default-email">Kontak</label>
               <div class="input-group input-group-merge">
-                <input
-                  type="text"
-                 value="{{ $vendor->contact_number }}"
-                  id=""
-                  name="contact_number"
-                  class="form-control"
-                  placeholder=""
-                  aria-label="john.doe"
-                  aria-describedby="basic-default-email2"
-                />
+                  <input
+                    type="text"
+                    value="{{ $vendor->contact_number }}"
+                    id=""
+                    name="contact_number"
+                    class="form-control"
+                    placeholder=""
+                    aria-label="john.doe"
+                    aria-describedby="basic-default-email2"
+                  />
               </div>
-        
-            </div>   
+              @error('contact_number')
+                  <div class="text-danger">{{ $message }}</div>
+              @enderror
+          </div>
           
             <button type="submit" class="btn btn-primary">update</button>
           </form>

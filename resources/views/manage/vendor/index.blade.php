@@ -31,13 +31,33 @@
                   <a class="btn btn-primary btn-sm" href="{{ route('vendor.edit', $vendor->id) }}"
                     ><i class="bx bx-edit-alt me-1"></i> Edit</a
                   >
-                  <form action="{{ route('vendor.delete', $vendor->id) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <button class="btn btn-danger btn-sm"><i class="bx bx-trash me-1"></i> Delete</button>
-                  </form>
-                </div>
+                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $vendor->id }}">
+                    <i class="bx bx-trash me-1"></i> Delete
+                  </button>
+              
+                  <!-- Modal -->
+                  <div class="modal fade" id="deleteModal-{{ $vendor->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Delete Vendor</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Are you sure you want to delete this vendor?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                          <form action="{{ route('vendor.delete', $vendor->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                </div>
               </td>
             </tr>
             @endforeach

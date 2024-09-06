@@ -18,6 +18,11 @@
 <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- @TODO: replace SET_YOUR_CLIENT_KEY_HERE with your client key -->
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+    data-client-key="{{ config('midtrans.client_key') }}"></script>
+<!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
 </head>
 
 <body>
@@ -36,19 +41,25 @@
                     <li class="nav-item">
                         <a class="nav-link custom-nav color-primary" aria-current="page" href="/">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link custom-nav color-primary" aria-current="page" href="{{ route('booth.about') }}">About</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle custom-nav color-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Produk
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item custom-nav color-primary" href="../../../resources/views/frontend/booth/categories.blade.php">Booth Makanan</a></li>
-                            <li><a class="dropdown-item custom-nav color-primary" href="#">Booth Minuman</a></li>
+                            {{-- @foreach ($categories as $category) --}}
+                            <li><a class="dropdown-item custom-nav color-primary" href="">Booth </a></li>
+                            {{-- @endforeach --}}
+                          
+
                         </ul>
                     </li>
                 </ul>
                 <ul class="nav">
                     <li class="nav-item ms-auto">
-                        <a class="nav-link color-primary btn btn-custom text-white rounded-5" href="{{ route('user-login') }}"><i class="bi bi-person-circle"></i> Log-in</a>
+                        <a class="nav-link color-primary btn btn-custom text-white rounded-5" href="/login"><i class="bi bi-person-circle"></i> Log-in</a>
                     </li>
                 </ul>
             </div>
@@ -90,11 +101,16 @@
     </footer>
 
 
+    {{-- Jquery --}}
+    <script src="/assets/manage/assets/vendor/libs/jquery/jquery.js"></script>
+    
     <!-- JavaScript Boostrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <!-- Custom JS -->
     <script src="../../../public/assets/frontend/js/custom.js"></script>
+
+    @stack('script')
 </body>
 
 </html>

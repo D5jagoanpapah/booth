@@ -23,13 +23,6 @@
             <tr>
               <td><i class="fab fa-angular fa-lg text-danger me-3"></i>{{ $user->name }}</td>
               <td>{{ $user->email }}</td>
-              {{-- <td>
-                <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                  <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar avatar-xs pull-up" title="Lilian Fuller">
-                    <img src="{{ Storage::url($user->user_detail->ktp_image_url) }}"  class="rounded-circle" />
-                  </li>
-                </ul>
-              </td>       --}}
               <td>
                 <div class="d-flex gap-2">
                   <a class="btn btn-info btn-sm" href="{{ route('user.address.index', $user->id) }}"
@@ -38,11 +31,32 @@
                   <a class="btn btn-primary btn-sm" href="{{ route('user.edit', $user->id) }}"
                     ><i class="bx bx-edit-alt me-1"></i> Edit</a
                   >
-                  <form action="{{ route('user.delete', $user->id) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <button class="btn btn-danger btn-sm"><i class="bx bx-trash me-1"></i> Delete</button>
-                  </form>
+                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $user->id }}">
+                    <i class="bx bx-trash me-1"></i> Delete
+                  </button>
+              
+                  <!-- Modal -->
+                  <div class="modal fade" id="deleteModal-{{ $user->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Are you sure you want to delete this user?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                          <form action="{{ route('user.delete', $user->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </td>
             </tr>

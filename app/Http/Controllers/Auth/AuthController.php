@@ -26,6 +26,16 @@ class AuthController extends Controller
         return view('auth.register');
     }
 
+    public function userlog(): View
+    {    
+        return view('auth-user.login');
+    }
+
+    public function userregis(): View
+    {    
+        return view('auth-user.register');
+    }
+
     public function postLogin(Request $request): RedirectResponse
     {
         $request->validate([

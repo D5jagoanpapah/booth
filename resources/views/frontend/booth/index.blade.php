@@ -33,47 +33,34 @@
         <!-- Judul -->
         <div class="row mt-4">
             <div class="col-md-8">
-                <h1 class="fw-bold">Sewa Booth Teh Solo Jaksel</h1>
-                <p><strong>Lokasi:</strong> Kalibata, Pancoran, Kota Jakarta Selatan, DKI Jakarta</p>
+                <h1 class="fw-bold">{{ $booth->name }}</h1>
+                <p><strong>Lokasi:</strong> {{ $booth->vendor->address->address . ', ' . $booth->vendor->address->district . ', ' . $booth->vendor->address->city->type . '. ' .  $booth->vendor->address->city->name . ', ' . $booth->vendor->address->province->name }}</p>
                 <!-- Deskripsi -->
                 <div class="divider mt-5">
                     <h4 class="fw-bold">Deskripsi</h4>
                 </div>
-                <p>Sewa tempat usaha di area kios Kalibata City. Lokasi: Tower Eboni Ct09, (Depan kios Cozy Property)</p>
-                <!-- Detail Properti -->
-                <div class="divider">
-                    <h4 class="fw-bold">Detail</h4>
+                <p>{{ nl2br($booth->name) }}</p>
+                <div class="divider mt-5">
+                    <h4 class="fw-bold">Foto</h4>
                 </div>
-                <h3 class="fw-bold mb-3">Detail Produk</h3>
-                <table class="table">
-                    <tr>
-                        <th>Tipe Properti</th>
-                        <td>Booth</td>
-                    </tr>
-                    <tr>
-                        <th>Nama Booth</th>
-                        <td>Ebony</td>
-                    </tr>
-                    <tr>
-                        <th>Lokasi</th>
-                        <td>Depan Kios Cozy Property</td>
-                    </tr>
-                    <tr>
-                        <th>Tipe Sewa</th>
-                        <td>Per Ruangan</td>
-                    </tr>
-                </table>
+                <div class="row">
+                    @foreach ($booth->images as $image)
+                    <div class="col-lg-4">
+                        <img src="{{ Storage::url($image->image_url) }}" class="w-100 shadow rounded">
+                    </div>
+                    @endforeach
+                </div>
             </div>
             <div class="col-md-4">
                 <!-- Harga Sewa -->
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title fw-bold text-center">Harga Sewa</h3>
-                        <p class="card-text text-center">Rp 3.000.000 / Bulan</p>
-                        <a href="#" class="btn btn-custom text-white rounded-5 w-100" data-bs-toggle="modal" data-bs-target="#sewaModal">Pesan Booth</a>
+                        <p class="card-text text-center">Rp{{ number_format($booth->price, '0','.','.') }}/Bulan</p>
+                        <a href="{{ route('view.payment', $booth->id) }}" class="btn btn-custom text-white rounded-5 w-100" >Pesan Booth</a>
                         <div class="mb-3 mt-4">
                             <p class="card-text text-center">Punya pertanyaan? Mau negosiasi harga?</p>
-                            <a href="#" class="btn btn-success text-white rounded-5 w-100"><i class="bi bi-whatsapp"></i> Hubungi Kami</a>
+                            <a href="https://wa.me/{{ $booth->vendor->address->phone_number }}" target="_blank" class="btn btn-success text-white rounded-5 w-100"><i class="bi bi-whatsapp"></i> Hubungi Kami</a>
                         </div>
                     </div>
                 </div>
@@ -82,9 +69,7 @@
                     <div class="card-body">
                         <h3 class="card-title fw-bold text-center">Lokasi</h3>
                         <div id="map-container" style="height: 300px;">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.6203123716943!2d106.8517662!3d-6.254965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6a1df5cabeffcf%3A0xd1c21cbb40df9b88!2sKalibata%20City!5e0!3m2!1sen!2sid!4v1629985232141!5m2!1sen!2sid"
-                                width="100%" height="100%" style="border:0;" allowfullscreen="" class="rounded-3" loading="lazy"></iframe>
+                            {!! $booth->vendor->address->gmaps !!}
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booth;
+use App\Models\Categories;
 use App\Models\Vendor;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -16,29 +17,26 @@ class FrontendController extends Controller
         $vendors = Vendor::all();
         return view('frontend.home.index', compact('booths','vendors'));
     }
-
-    public function userlog(): View
-    {    
-        return view('auth-user.login');
-    }
-
-    public function userregis(): View
-    {    
-        return view('auth-user.register');
-    }
-
-    public function viewpayment(): View
+    
+    public function viewpayment(Booth $booth): View
     {
-        return view('frontend.payment.index');
+        $vendors = Vendor::all();
+        return view('frontend.payment.index', compact('booth'));
     }
+    
 
-    public function viewbooth(): View
+    public function viewbooth(Booth $booth): View
     {   
-       return view('frontend.booth.index'); 
+       return view('frontend.booth.index', compact('booth')); 
     }
 
     public function viewboothcategory(): View
     {
         return view('frontend.booth.categories');
+    }
+
+    public function about(): View
+    {
+        return view('frontend.about.index');
     }
 }

@@ -32,31 +32,41 @@ class VendorController extends Controller
     }
 
     public function insert(Request $request)
-    {
-        $vendor = new Vendor();
+{
+    $request->validate([
+        'user_id' => 'required|exists:users,id',
+        'company_name' => 'required|string|max:255',
+        'address_id' => 'required|exists:addresses,id',
+        'contact_number' => 'required|string|max:20',
+    ]);
 
-        $vendor->user_id = $request->user_id;
-        $vendor->company_name = $request->company_name;
-        $vendor->address_id = $request->address_id;
-        $vendor->contact_number = $request->contact_number;
-        $vendor->save();
+    $vendor = new Vendor();
 
-        return redirect('vendor')->with('success', "vendor update success");
-    }
+    $vendor->user_id = $request->user_id;
+    $vendor->company_name = $request->company_name;
+    $vendor->address_id = $request->address_id;
+    $vendor->contact_number = $request->contact_number;
+    $vendor->save();
 
-    function update(Vendor $vendor, Request $request)
-    {
+    return redirect('vendor')->with('success', "Vendor created successfully");
+}
 
-        $vendor->company_name = $request->company_name;
-        $vendor->address_id = $request->address_id;
-        $vendor->contact_number = $request->contact_number;
+public function update(Vendor $vendor, Request $request)
+{
+    $request->validate([
+        'company_name' => 'required|string|max:255',
+        'address_id' => 'required|exists:addresses,id',
+        'contact_number' => 'required|string|max:20',
+    ]);
 
-        $vendor->update();
+    $vendor->company_name = $request->company_name;
+    $vendor->address_id = $request->address_id;
+    $vendor->contact_number = $request->contact_number;
 
+    $vendor->update();
 
-        return redirect('vendor')->with('success', "vendor update success");
-    }
-
+    return redirect('vendor')->with('success', "Vendor updated successfully");
+}
 
     function get_address(Request $request)
     {

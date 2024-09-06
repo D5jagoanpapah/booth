@@ -9,7 +9,6 @@ use App\Models\Address;
 use App\Models\UserDetail;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -27,6 +26,13 @@ class UserController extends Controller
 
     public function insert(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6',
+            'ktp_image_url' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
         $user = new User();
 
         $user->name = $request->name;
@@ -41,7 +47,7 @@ class UserController extends Controller
             $user_detail->save();
         }
 
-        return redirect('user')->with('success', "user update success");
+        return redirect('user')->with('success', "User created successfully");
     }
 
     public function edit(User $user)
@@ -49,8 +55,15 @@ class UserController extends Controller
         return view('manage.user.edit', compact('user'));
     }
 
-    function update(User $user, Request $request)
+    public function update(User $user, Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:6',
+            'ktp_image_url' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
         $user->name = $request->name;
         $user->email = $request->email;
 
@@ -60,19 +73,23 @@ class UserController extends Controller
 
         $user->update();
 
+
         if ($file = $request->file('ktp_image_url')) {
-            Storage::disk('public')->delete($user->user_detail->ktp_image_url);
+            if ($user->user_detail->ktp_image_url) {
+                Storage::disk('public')->delete($user->user_detail->ktp_image_url);
+            }
 
             $user->user_detail->ktp_image_url = $file->store('user/ktp_image', 'public');
             $user->user_detail->update();
         }
-        return redirect('user')->with('success', "users update success");
+
+        return redirect('user')->with('success', "User updated successfully");
     }
 
     function destroy(User $user)
     {
-        $user->user_detail->delete();
 
+        $user->user_detail->delete();
         Storage::disk('public')->delete($user->user_detail->ktp_image_url);
 
         $user->delete();

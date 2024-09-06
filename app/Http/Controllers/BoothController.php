@@ -11,8 +11,6 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
 
-
-
 class BoothController extends Controller
 {
     public function index(): View
@@ -32,20 +30,32 @@ class BoothController extends Controller
         return view('manage.booth.edit', compact('booth'));
     }
 
-
     public function insert(Request $request)
     {
-        // dd($request->all());
+        $validatedData = $request->validate([
+            'vendor_id' => 'required|exists:vendors,id',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'stok' => 'required|numeric',
+            'size' => 'required|string',
+            'image_url' => 'array',
+            'image_url.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+
+
         $booth = new Booth();
 
-        $booth->vendor_id = $request->vendor_id;
-        $booth->name = $request->name;
-        $booth->description = $request->description;
-        $booth->price = $request->price;
-        $booth->size = $request->size;
+        $booth->vendor_id = $validatedData['vendor_id'];
+        $booth->name = $validatedData['name'];
+        $booth->description = $validatedData['description'];
+        $booth->price = $validatedData['price'];
+        $booth->stok = $validatedData['stok'];
+        $booth->size = $validatedData['size'];
         $booth->save();
 
-        if ($request->image_url) {
+        if ($request->hasFile('image_url')) {
             foreach ($request->file('image_url') as $file) {
                 $booth_image = new BoothImage();
                 $booth_image->booth_id = $booth->id;
@@ -57,17 +67,26 @@ class BoothController extends Controller
         return redirect('booth')->with('success', "booth update success");
     }
 
-    function update(Booth $booth, Request $request)
+    public function update(Booth $booth, Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric',
+            'size' => 'required|string',
+            'stok' => 'required|numeric',
+            'image_url' => 'array',
+            'image_url.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-
-        $booth->name = $request->name;
-        $booth->description = $request->description;
-        $booth->price = $request->price;
-        $booth->size = $request->size;
+        $booth->name = $validatedData['name'];
+        $booth->description = $validatedData['description'];
+        $booth->price = $validatedData['price'];
+        $booth->stok = $validatedData['stok'];
+        $booth->size = $validatedData['size'];
         $booth->update();
 
-        if ($request->image_url) {
+        if ($request->hasFile('image_url')) {
             foreach ($request->file('image_url') as $file) {
                 $booth_image = new BoothImage();
                 $booth_image->booth_id = $booth->id;
@@ -76,10 +95,19 @@ class BoothController extends Controller
             }
         }
 
-        return redirect()->back()->with('success', "image has been deleted");
+        return redirect()->back()->with('success', "image has been updated");
     }
 
-    function destroy_image(BoothImage $booth_image)
+    function destroy(Booth $booth)
+    {
+      
+        $booth->delete();
+
+        return redirect('booth')->with('success', "booth deleted success");
+    }
+
+
+    public function destroy_image(BoothImage $booth_image)
     {
         Storage::disk('public')->delete($booth_image->image_url);
 

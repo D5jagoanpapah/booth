@@ -26,22 +26,32 @@ class CategoriesController extends Controller
 
     public function insert(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
         $category = new Categories();
 
         $category->name = $request->name;
         $category->description = $request->description;
         $category->save();
 
-        return redirect('booth_category')->with('success', "category update success");
+        return redirect('booth_category')->with('success', "category created success");
     }
 
     function update(Categories $category, Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
         $category->name = $request->name;
         $category->description = $request->description;
         $category->update();
 
-        return redirect('booth_category')->with('success', "category update success");
+        return redirect('booth_category')->with('success', "category updated success");
     }
 
     function destroy(Categories $category)

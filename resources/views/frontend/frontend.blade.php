@@ -92,7 +92,7 @@
         <div class="search-bar d-flex justify-content-center mt-4">
             <div class="input-group" style="max-width: 600px; width: 100%;">
                 <input type="text" class="form-control" placeholder="Cari lokasi, kota, provinsi...">
-                <button class="btn btn-custom text-white" type="button"><i class="bi bi-search"></i></button>
+                <button class="btn btn-custom text-white search-button"  type="button"><i class="bi bi-search "></i></button>
             </div>
         </div>
     </div>
@@ -182,13 +182,13 @@
                 </div>
                 <!-- Swiper Section -->
                 <div class="col-md-3">
-                            <div class="swiper-slide"><img src="../../../public/assets/images/rating-assets/rating-1.png" class="img-fluid rounded-4 rating-img" alt=""></div>
+                            <div class="rating-card"><img src="../../../public/assets/images/rating-assets/rating-1.png" class="img-fluid rounded-4 rating-img" alt=""></div>
                         </div>
                 <div class="col-md-3">
-                            <div class="swiper-slide"><img src="../../../public/assets/images/rating-assets/rating-v-1.png" class="img-fluid rounded-4 rating-img" alt=""></div>
+                            <div class="rating-card"><img src="../../../public/assets/images/rating-assets/rating-v-1.png" class="img-fluid rounded-4 rating-img" alt=""></div>
                         </div>
                 <div class="col-md-3">
-                            <div class="swiper-slide"><img src="../../../public/assets/images/rating-assets/rating-6.png" class="img-fluid rounded-4" alt=""></div>
+                            <div class="rating-card"><img src="../../../public/assets/images/rating-assets/rating-6.png" class="img-fluid rounded-4" alt=""></div>
                         </div>
                     </div>
                     <div class="row d-flex justify-content-center">
@@ -237,6 +237,8 @@
     <script>
   AOS.init();
   </script>
+
+  @push('script')
 </body>
 
 </html>

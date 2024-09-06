@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('province_id');
             $table->integer('city_id');
             $table->integer('subdistrict_id');
+            $table->string('gmaps');
             $table->text('address');
             $table->string('postal_code');
             $table->string('phone_number');

@@ -1,6 +1,5 @@
 @extends('manage.layout')
 
-
 @section('content')
  <!-- Form controls -->
 
@@ -15,6 +14,7 @@
           @method('PUT')
           @csrf
 
+        
           <div class="mb-3">
             <label for="" class="col-form-label">Vendor</label>
             <p>{{ $booth->vendor->company_name }}</p>
@@ -25,15 +25,21 @@
              <input
              type="text"
              name="name"
-             class="form-control"
+             class="form-control @error('name') is-invalid @enderror"
              id="exampleFormControlInput1"
              value="{{ $booth->name }}"
              />
+             @error('name')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
             </div>
             
           <div class="mb-3">
           <label for="exampleFormControlReadOnlyInput1" class="form-label">Deskripsi</label>
-          <textarea class="form-control" name="description" id="" rows="4">{{ $booth->description }}</textarea>
+          <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="" rows="4">{{ $booth->description }}</textarea>
+           @error('description')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
 
         <div class="mb-3">
@@ -41,10 +47,28 @@
           <input
           type="text"
           name="price"
-          class="form-control"
+          class="form-control @error('price') is-invalid @enderror"
           id="exampleFormControlInput1"
           value="{{ $booth->price }}"
           />
+          @error('price')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
+       
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Stok</label>
+          <input
+          type="text"
+          name="stok"
+          class="form-control @error('stok') is-invalid @enderror"
+          id="exampleFormControlInput1"
+          value="{{ $booth->stok }}"
+          />
+          @error('stok')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
         
      
@@ -53,17 +77,23 @@
           <input
             type="text"
             name="size"
-            class="form-control"
+            class="form-control @error('size') is-invalid @enderror"
             id="exampleFormControlInput1"
             value="{{ $booth->size }}"
           />
+          @error('size')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="mb-3">
           <div class="row">
             <div class="col-lg-12">
               <label for="formFile" class="form-label">Gambar Booth</label>
-              <input class="form-control" type="file" id="formFile" name="image_url[]" multiple />
+              <input class="form-control @error('image_url') is-invalid @enderror" type="file" id="formFile" name="image_url[]" multiple />
+              @error('image_url')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
             </div>
           </div>
           <div class="row">

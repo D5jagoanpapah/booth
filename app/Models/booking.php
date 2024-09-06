@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     use HasFactory;
+
+    public function payment()
+    {
+        return $this->hasOne(Payment::class);
+    }
+
+    public function booth()
+    {
+        return $this->belongsTo(Booth::class);
+    }
+
 }

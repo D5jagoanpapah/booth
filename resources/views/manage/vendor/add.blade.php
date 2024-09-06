@@ -19,43 +19,50 @@
           <form action="{{ route('vendor.insert') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="" class="col-form-label">Nama</label>
-                <select name="user_id" id="" class="form-select _user">
-                    <option value="" hidden>Pilih User</option>
-                    @foreach($users as $user)
-                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                    @endforeach
-                </select>
-            </div>
+              <label for="" class="col-form-label">Nama</label>
+              <select name="user_id" id="" class="form-select _user" >
+                  <option value="" hidden>Pilih User</option>
+                  @foreach($users as $user)
+                  <option value="{{ $user->id }}">{{ $user->name }}</option>
+                  @endforeach
+              </select>
+              @error('user_id')
+             <div class="text-danger">{{ $message }}</div>
+              @enderror 
+             </div>
 
-            <div class="mb-3">
+          <div class="mb-3">
             <div class="_address">
-
+            
             </div>
                 
             </div>
-
-            <div class="mb-3">
+          
+          <div class="mb-3">
               <label class="form-label" for="basic-default-fullname">Nama Perusahaan</label>
               <input type="text" class="form-control" id="company_name" name="company_name" placeholder="" />
-            </div>
-
-
-            <div class="mb-3">
+              @error('company_name')
+                  <div class="text-danger">{{ $message }}</div>
+              @enderror
+          </div>
+          
+          <div class="mb-3">
               <label class="form-label" for="basic-default-email">Kontak</label>
               <div class="input-group input-group-merge">
-                <input
-                  type="text"
-                  id="email"
-                  name="contact_number"
-                  class="form-control"
-                  placeholder=""
-                  aria-label="john.doe"
-                  aria-describedby="basic-default-email2"
-                />
+                  <input
+                    type="text"
+                    id="email"
+                    name="contact_number"
+                    class="form-control"
+                    placeholder=""
+                    aria-label="john.doe"
+                    aria-describedby="basic-default-email2"
+                  />
               </div>
-        
-            </div>         
+              @error('contact_number')
+                  <div class="text-danger">{{ $message }}</div>
+              @enderror
+          </div>   
             <button type="submit" class="btn btn-primary">Buat</button>
           </form>
         </div>

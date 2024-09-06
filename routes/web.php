@@ -5,22 +5,39 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\BoothController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\RajaOngkirController;
 use App\Http\Controllers\UserAddressController;
 
-// landing page
+// landing page 
 Route::get('/', [FrontendController::class, 'index'])->name('view');
-Route::get('viewpayment', [FrontendController::class, 'viewpayment'])->name('view.payment');
-Route::get('viewbooth', [FrontendController::class, 'viewbooth'])->name('view.booth');
+Route::get('viewbooth/{booth}', [FrontendController::class, 'viewbooth'])->name('view.booth');
+Route::get('viewpayment/{booth}', [FrontendController::class, 'viewpayment'])->name('view.payment');
 Route::get('viewboothcategory', [FrontendController::class, 'viewboothcategory'])->name('view.category');
 
+// Booking - admin
+Route::get('booking', [BookingController::class, 'index'])->name('booking');
+
+
+// Booking - landing page
+Route::post('booth/booking', [BookingController::class, 'store'])->name('booth.booking');
+Route::get('booth/booking/{booking}', [BookingController::class, 'invoice'])->name('booth.booking.invoice');
+
+
+// admin page -- payment 
+Route::get('payment', [PaymentController::class, 'index'])->name('payment');
+Route::post('payment/finish', [PaymentController::class, 'finish'])->name('payment.finish');
+
+// Payment - landing page 
+Route::get('about', [FrontendController::class, 'about'])->name('booth.about');
 
 // landing page -login and regsiter
-Route::get('login-user', [FrontendController::class, 'userlog'])->name('user-login');
-Route::get('regis-user', [FrontendController::class, 'userregis'])->name('user-register');
+// Route::get('login-user', [AuthController::class, 'userlog'])->name('user-login');
+// Route::get('regis-user', [AuthController::class, 'userregis'])->name('user-register');
 
 
 
@@ -70,7 +87,6 @@ Route::get('booth/{booth}/edit', [BoothController::class, 'edit'])->name('booth.
 Route::put('booth/{booth}/update', [BoothController::class, 'update'])->name('booth.update');
 Route::delete('booth/{booth}/delete', [BoothController::class, 'destroy'])->name('booth.delete');
 Route::get('booth/images/{booth_image}/delete', [BoothController::class, 'destroy_image'])->name('booth.images.delete');
-
 
 
 

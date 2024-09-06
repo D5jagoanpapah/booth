@@ -1,6 +1,5 @@
 @extends('manage.layout')
-   
-   
+
 @section('content')
 
    <!-- Basic Layout -->
@@ -16,20 +15,27 @@
 
         </div>
         <div class="card-body">
-          <form action="{{ route('booth_category.update', $category->id) }}) }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('booth_category.update', $category->id) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
+            
             <div class="mb-3">
               <label class="form-label" for="basic-default-fullname">Nama Kategori</label>
-              <input type="text" class="form-control" id="name" value="{{ $category->name }}" name="name" placeholder="" />
+              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ $category->name }}" name="name" placeholder="" />
+              @error('name')
+                  <div class="invalid-feedback">{{ $message }}</div>
+              @enderror
             </div>
 
             <div class="mb-3">
                 <label for="" class="col-form-label">Deskripsi</label>
-                <textarea class="form-control" name="description" id="" rows="4">{{ $category->description }}</textarea>
+                <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="" rows="4">{{ $category->description }}</textarea>
+                @error('description')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
               
-            <button type="submit" class="btn btn-primary">Buat</button>
+            <button type="submit" class="btn btn-primary">Update</button>
             
             
           </form>
@@ -38,4 +44,4 @@
       </div>
     </div>
 
-    @stop
+@stop

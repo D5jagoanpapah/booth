@@ -30,27 +30,37 @@
             <div class="mb-3">
                 <h2 class="fw-bold color-primary">Buat Akun</h2>
             </div>
+            <form id="formAuthentication"  action="{{ route('register.post') }}" method="POST">
+                @csrf
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Masukkan Nama">
+                <input type="text" id="name" name="name" class="form-control" placeholder="Masukkan Nama">
+                @if ($errors->has('name'))
+                <span class="text-danger">{{ $errors->first('name') }}</span>
+                @endif
             </div>
             <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Masukkan Email">
+                <input type="email" id="email_address" name="email" class="form-control" placeholder="Masukkan Email">
+                @if ($errors->has('email'))
+                <span class="text-danger">{{ $errors->first('email') }}</span>
+                @endif
             </div>
             <div class="mb-3">
-                <input type="password" class="form-control" placeholder="Masukkan Password">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Masukkan Password">
+                @if ($errors->has('password'))
+                <span class="text-danger">{{ $errors->first('password') }}</span>
+                @endif
             </div> 
             <button type="submit" class="btn btn-custom text-white w-100 rounded-5">Register</button>
+        </form>
             <div class="divider">
                 <span>Atau</span>
             </div>
-            <form>
                 <div class="social-btn">
                     <a href="{{ route('auth.google') }}">
                         <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" alt="Google Icon">
                         <span>Buat akun dengan Google</span>
                     </a>
                 </div>      
-            </form>
             <div class="text-center mt-3">
                 <span>Sudah memiliki akun? <a href="{{ route('user-login') }}" class="color-primary">Login disini</a></span>
             </div>

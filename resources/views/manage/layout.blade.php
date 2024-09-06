@@ -99,14 +99,14 @@
             
             <li class="menu-item">
               <a href="/vendor" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-user"></i>
+                <i class="menu-icon tf-icons bx bx-user-pin"></i>
                 <div>Vendors</div>
               </a>
             </li>
             
             <li class="menu-item">
               <a href="/booth_category" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-book"></i>
+                <i class="menu-icon tf-icons bx bx-category"></i>
                 <div>Kategori Booth</div>
               </a>
             </li>
@@ -120,14 +120,14 @@
 
             
             <li class="menu-item">
-              <a href="/booth" class="menu-link">
+              <a href="/booking" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-task"></i>
                 <div>Bookings</div>
               </a>
             </li>
             
             <li class="menu-item">
-              <a href="/booth" class="menu-link">
+              <a href="/payment" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-money"></i>
                 <div>Pembayaran</div>
               </a>
@@ -194,7 +194,7 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
+                            <span class="fw-semibold d-block">gar</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>
