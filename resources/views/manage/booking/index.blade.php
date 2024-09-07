@@ -14,7 +14,6 @@
             <tr>
               <th>Nama Pembeli</th>
               <th>Nama Booth</th>
-              <th>Alamat</th>
               <th>Tanggal Boking</th>
               <th>Durasi</th>
               <th>Status</th>
@@ -22,14 +21,13 @@
             </tr>
           </thead>
           <tbody class="table-border-bottom-0">
-            {{-- @foreach ($booths as $booth) --}}
+            @foreach ($bookings as $booking)
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{ $booking->user->name }}</td>
+              <td>{{ $booking->booth->name }}</td>
+              <td>{{  $booking->booking_date }}</td>
+              <td>{{  $booking->duration }} Bulan</td>
+              <td>{{  $booking->status }}</td>
             <td>
               <div class="d-flex gap-2">
                 <a class="btn btn-success btn-sm" href=""
@@ -43,7 +41,7 @@
               </div>
               </td>
             </tr>
-            {{-- @endforeach --}}
+            @endforeach
           </tbody>
         </table>
       </div>

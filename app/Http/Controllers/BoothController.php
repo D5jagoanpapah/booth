@@ -6,6 +6,7 @@ use App\Models\Address;
 use App\Models\Booth;
 use App\Models\Booth_Image;
 use App\Models\BoothImage;
+use App\Models\Category;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -16,24 +17,28 @@ class BoothController extends Controller
     public function index(): View
     {
         $booths = Booth::all();
-        return view('manage.booth.index', compact('booths'));
+        $categories = Category::all();
+        return view('manage.booth.index', compact('booths', 'categories'));
     }
 
     public function add(Vendor $vendors): View
     {
         $vendors = Vendor::all();
-        return view('manage.booth.add', compact('vendors'));
+        $categories = Category::all();
+        return view('manage.booth.add', compact('vendors', 'categories'));
     }
-
+    
     public function edit(Booth $booth)
     {
-        return view('manage.booth.edit', compact('booth'));
+        $categories = Category::all();
+        return view('manage.booth.edit', compact('booth', 'categories'));
     }
 
     public function insert(Request $request)
     {
         $validatedData = $request->validate([
             'vendor_id' => 'required|exists:vendors,id',
+            'category_id' => 'required',
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'required|numeric',
@@ -48,12 +53,14 @@ class BoothController extends Controller
         $booth = new Booth();
 
         $booth->vendor_id = $validatedData['vendor_id'];
+        $booth->category_id = $validatedData['category_id'];
         $booth->name = $validatedData['name'];
         $booth->description = $validatedData['description'];
         $booth->price = $validatedData['price'];
         $booth->stok = $validatedData['stok'];
         $booth->size = $validatedData['size'];
         $booth->save();
+
 
         if ($request->hasFile('image_url')) {
             foreach ($request->file('image_url') as $file) {
@@ -70,6 +77,7 @@ class BoothController extends Controller
     public function update(Booth $booth, Request $request)
     {
         $validatedData = $request->validate([
+            'category_id' => 'required',
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'required|numeric',
@@ -79,6 +87,7 @@ class BoothController extends Controller
             'image_url.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        $booth->category_id = $validatedData['category_id'];
         $booth->name = $validatedData['name'];
         $booth->description = $validatedData['description'];
         $booth->price = $validatedData['price'];
@@ -100,7 +109,7 @@ class BoothController extends Controller
 
     function destroy(Booth $booth)
     {
-      
+
         $booth->delete();
 
         return redirect('booth')->with('success', "booth deleted success");

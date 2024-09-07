@@ -13,6 +13,7 @@
           <thead>
             <tr>
               <th>Vendor</th>
+              <th>Kategori</th>
               <th>Nama</th>
               <th>Harga</th>
               <th>Stok</th>
@@ -24,6 +25,7 @@
             @foreach ($booths as $booth)
             <tr>
               <td>{{ $booth->vendor->company_name }}</td>
+              <td>{{ $booth->category->name }}</td>
               <td>{{ $booth->name }}</td>
               <td>{{ $booth->price }}</td>
               <td>{{ $booth->stok }}</td>
@@ -36,7 +38,7 @@
                 <form action="{{ route('booth.delete', $booth->id) }}" method="post">
                   @csrf
                   @method('delete')
-                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $booth->id }}"><i class="bx bx-trash me-1"></i> Delete</button>
+                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $booth->id }}"><i class="bx bx-trash me-1"></i> Hapus</button>
                 </form>
               </div>
               </td>

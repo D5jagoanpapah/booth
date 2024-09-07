@@ -40,6 +40,10 @@ class UserController extends Controller
         $user->password = $request->password;
         $user->save();
 
+        // $vendor = new Vendor();
+        // $vendor->user_id = $user->id;
+
+
         if ($file = $request->file('ktp_image_url')) {
             $user_detail = new UserDetail();
             $user_detail->user_id = $user->id;

@@ -21,28 +21,28 @@
             </tr>
           </thead>
           <tbody class="table-border-bottom-0">
-            {{-- @foreach ($booths as $booth) --}}
+            @foreach ($payments as $payment)
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{ $payment->booking_id }}</td>
+              <td>{{ $payment->order_id }}</td>
+              <td>Rp{{ number_format($payment->amount, '0', '.', '.')}}</td>
+              <td>{{ $payment->payment_date }}</td>
+              <td>{{ $payment->status }}</td>
              
             <td>
               <div class="d-flex gap-2">
-                <a class="btn btn-success btn-sm" href=""
+                <a class="btn btn-success btn-sm" href="{{ route('payment.detail_booking', $payment->id ) }}"
                   ><i class='bx bx-shopping-bag'></i> Manage</a
                 >
                 <form action="" method="post">
                   {{-- @csrf --}}
                   {{-- @method('delete') --}}
-                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bx bx-trash me-1"></i> Batal</button>
+                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bx bx-trash me-1"></i> Hapus</button>
                 </form>
               </div>
               </td>
             </tr>
-            {{-- @endforeach --}}
+            @endforeach
           </tbody>
         </table>
       </div>

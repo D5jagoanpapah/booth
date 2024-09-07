@@ -4,7 +4,7 @@
 
 body {
     font-family: "Poppins" !important;
-    padding-top: 6rem !important ;
+    padding-top: 8rem !important ;
 }
 
 /* 0 */
@@ -25,7 +25,7 @@ body {
 
 .btn-custom {
     background-color: #008080 !important;
-    color: white;
+    color: white !important;
     transition: ease-in-out 1s;
 }
 
@@ -58,7 +58,6 @@ body {
 .search-button button {
     border-radius: 50px !important;
 }
-
 
 .swiper {
     width: 100%;
@@ -137,6 +136,13 @@ body {
     height: 24px;
     margin-right: 10px;
 }
+hr.dotted {
+    border: none;
+    border-top: 4px dotted grey;
+    color: #fff;
+    background-color: #fff;
+    width: 100%;
+}
 .divider {
     text-align: center;
     margin: 20px 0;
@@ -190,4 +196,4 @@ iframe {
 
 .rating-card:hover img {
     transform: translateY(-10px) !important;
-}   
+}

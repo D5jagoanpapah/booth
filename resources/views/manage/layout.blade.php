@@ -65,7 +65,7 @@
               <span class="app-brand-logo demo">
              
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder "> <span style="color: black">Bro</span> <span style="color: #004d4d ">booth.</span></span>
+              <span class="app-brand-text demo menu-text fw-bolder "> <span style="color: black">Bro</span><span style="color: #004d4d ">booth.</span></span>
             </a>
 
             <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -119,12 +119,12 @@
             </li>
 
             
-            <li class="menu-item">
+            {{-- <li class="menu-item">
               <a href="/booking" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-task"></i>
                 <div>Bookings</div>
               </a>
-            </li>
+            </li> --}}
             
             <li class="menu-item">
               <a href="/payment" class="menu-link">
@@ -133,12 +133,7 @@
               </a>
             </li>
 
-            <li class="menu-item">
-              <a href="/booth" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-message"></i>
-                <div>Riviews</div>
-              </a>
-            </li>
+         
 
           </ul>
         </aside>
@@ -180,18 +175,17 @@
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                    <div class="avatar avatar-online">
-                      <img src="/assets/manage/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-                    </div>
+                  
+                      <i class='bx bxs-user-circle bx-lg'></i>
+                    
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
                     <li>
                       <a class="dropdown-item" href="#">
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
-                            <div class="avatar avatar-online">
-                              <img src="/assets/manage/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-                            </div>
+                            <i class='bx bxs-user-circle bx-lg'></i>
+
                           </div>
                           <div class="flex-grow-1">
                             <span class="fw-semibold d-block">gar</span>
@@ -209,13 +203,13 @@
                         <span class="align-middle">My Profile</span>
                       </a>
                     </li>
-                    <li>
+                    {{-- <li>
                       <a class="dropdown-item" href="#">
                         <i class="bx bx-cog me-2"></i>
                         <span class="align-middle">Settings</span>
                       </a>
-                    </li>
-                    <li>
+                    </li> --}}
+                    {{-- <li>
                       <a class="dropdown-item" href="#">
                         <span class="d-flex align-items-center align-middle">
                           <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
@@ -223,7 +217,7 @@
                           <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
                         </span>
                       </a>
-                    </li>
+                    </li> --}}
                     <li>
                       <div class="dropdown-divider"></div>
                     </li>
@@ -258,26 +252,9 @@
                     document.write(new Date().getFullYear());
                   </script>
                   , made with ❤️ by
-                  <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
+                  <a href="#" target="_blank" class="footer-link fw-bolder">Brobooth</a>
                 </div>
-                <div->
-                  <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
-                  <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More Themes</a>
-
-                  <a
-                    href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                    target="_blank"
-                    class="footer-link me-4"
-                    >Documentation</a
-                  >
-
-                  <a
-                    href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                    target="_blank"
-                    class="footer-link me-4"
-                    >Support</a
-                  >
-                </div->
+             
               </div>
             </footer>
             <!-- / Footer -->

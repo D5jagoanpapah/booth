@@ -8,7 +8,7 @@
               <div class="app-brand justify-content-center">
                 <a href="/" class="app-brand-link gap-2">
                  
-                  <span class="app-brand-text demo text-body fw-bolder"><span style="color: black">Bro</span> <span style="color: #004d4d ">booth.</span></span>
+                  <span class="app-brand-text demo text-body fw-bolder"><span style="color: black">Bro</span><span style="color: #004d4d ">booth.</span></span>
                 </a>
               </div>
               <!-- /Logo -->

@@ -32,7 +32,7 @@
                     ><i class="bx bx-edit-alt me-1"></i> Edit</a
                   >
                   <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal-{{ $vendor->id }}">
-                    <i class="bx bx-trash me-1"></i> Delete
+                    <i class="bx bx-trash me-1"></i> Hapus
                   </button>
               
                   <!-- Modal -->
@@ -47,11 +47,11 @@
                           Are you sure you want to delete this vendor?
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                           <form action="{{ route('vendor.delete', $vendor->id) }}" method="post">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Hapus</button>
                           </form>
                         </div>
                       </div>

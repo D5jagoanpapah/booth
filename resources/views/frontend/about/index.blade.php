@@ -7,8 +7,8 @@
         <div class="col-12 col-md-10">
             <div class="card bg-custom rounded-5 text-center shadow-lg border-0">
                 <div class="card-body py-5">
-                    <h2 class="fw-bold text-white">Tentang BRO BOOTH.</h2>
-                    <p class="text-white">Informasi mengenai <strong>BRO BOOTH.</strong> dan layanan yang kami tawarkan.</p>
+                    <h2 class="fw-bold text-white">Tentang BROBOOTH.</h2>
+                    <p class="text-white">Informasi mengenai <strong>BROBOOTH.</strong> dan layanan yang kami tawarkan.</p>
                 </div>
             </div>
         </div>

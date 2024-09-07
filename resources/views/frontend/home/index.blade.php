@@ -51,7 +51,7 @@
         <!-- Rekomendasi -->
         @foreach ($booths as $booth)
         
-        <div class="col-md-3">
+        <div class="col-md-6 col-lg-3">
             <div class="card shadow-sm">
                 <div class="position-relative">
                     
@@ -81,7 +81,7 @@
     <div class="container py-5">
         <div class="text-center mb-5">
             <h1 class="fw-bold text-nowrap ">Cara Mudah Sewa Booth <br>
-                di BRO BOOTH.</h1>
+                di BROBOOTH.</h1>
         </div>
         <div class="row text-center ">
             <div class="col-lg-3 mt-0  mb-4">
@@ -128,7 +128,7 @@
   <div class="container py-5">
     <div class="row">
         <div class="col-md-8 offset-md-2 text-center">
-            <h1 class="fw-bold mb-4 color-primary">Tentang Bro Booth.</h1>
+            <h1 class="fw-bold mb-4 color-primary">Tentang BroBooth.</h1>
             <p class="color-primary mb-4">
                 <strong>Brobooth.</strong> adalah platform inovatif yang diciptakan untuk memudahkan UMKM di Indonesia dalam mencari dan menyewa booth berkualitas dari berbagai vendor terpercaya.
             </p>
@@ -156,13 +156,13 @@
             </div>
             <!-- Swiper Section -->
             <div class="col-md-3">
-                        <div class="swiper-slide"><img src="/assets/frontend/images/rating-assets/rating-1.png" class="img-fluid rounded-4 rating-img" alt=""></div>
+                        <div class="rating-card"><img src="/assets/frontend/images/rating-assets/rating-1.png" class="img-fluid rounded-4 rating-img" alt=""></div>
                     </div>
             <div class="col-md-3">
-                        <div class="swiper-slide"><img src="/assets/frontend/images/rating-assets/rating-v-1.png" class="img-fluid rounded-4 rating-img" alt=""></div>
+                        <div class="rating-card"><img src="/assets/frontend/images/rating-assets/rating-v-1.png" class="img-fluid rounded-4 rating-img" alt=""></div>
                     </div>
             <div class="col-md-3">
-                        <div class="swiper-slide"><img src="/assets/frontend/images/rating-assets/rating-6.png" class="img-fluid rounded-4" alt=""></div>
+                        <div class="rating-card"><img src="/assets/frontend/images/rating-assets/rating-6.png" class="img-fluid rounded-4" alt=""></div>
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center">

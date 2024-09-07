@@ -3,24 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;
-use App\Models\Categories;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
     public function index(): View
     {
-        $categories = Categories::all();
+        $categories = Category::all();
         return view('manage.booth_category.index', compact('categories'));
     }
 
     public function add(): View
-    {  
+    {
         return view('manage.booth_category.add');
     }
 
-    public function edit(Categories $category): View
-    {  
+    public function edit(Category $category): View
+    {
         return view('manage.booth_category.edit', compact('category'));
     }
 
@@ -31,7 +31,7 @@ class CategoriesController extends Controller
             'description' => 'required|string',
         ]);
 
-        $category = new Categories();
+        $category = new Category();
 
         $category->name = $request->name;
         $category->description = $request->description;
@@ -40,7 +40,7 @@ class CategoriesController extends Controller
         return redirect('booth_category')->with('success', "category created success");
     }
 
-    function update(Categories $category, Request $request)
+    function update(Category $category, Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -54,7 +54,7 @@ class CategoriesController extends Controller
         return redirect('booth_category')->with('success', "category updated success");
     }
 
-    function destroy(Categories $category)
+    function destroy(Category $category)
     {
         $category->delete();
         return redirect('booth_category')->with('success', "category deleted success");

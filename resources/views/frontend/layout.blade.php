@@ -32,7 +32,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-white shadow-sm py-4 fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#">BRO <span style="color:#008080;">BOOTH</span>.</a>
+            <a class="navbar-brand fw-bold" href="#">BRO<span style="color:#008080;">BOOTH</span>.</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -75,7 +75,7 @@
         <div class="container text-center text-md-start">
             <div class="row text-center text-md-start">
                 <div class="col-md-6 col-lg-4 col-xl-3 mx-auto mt-3">
-                    <h1 class="text-uppercase mb-4 font-weight-bold text-white fw-bold">BRO BOOTH.</h1>
+                    <h1 class="text-uppercase mb-4 font-weight-bold text-white fw-bold">BROBOOTH.</h1>
                     <p>
                         <i class="bi bi-house-door-fill me-2"></i>Jl. Raya Cileungsi Jonggol KM 1 No.12, Cileungsi Kidul, Kec. Cileungsi, Kab. Bogor
                     </p>

@@ -6,6 +6,7 @@ use App\Models\Address;
 use App\Models\Booking;
 use App\Models\Booth;
 use App\Models\Payment;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -13,7 +14,9 @@ class BookingController extends Controller
 
     public function index()
     {
-        return view('manage.booking.index');
+        $bookings = Booking::all();
+        $users = User::all();
+        return view('manage.booking.index', compact('bookings'));
     }
 
 
@@ -87,4 +90,6 @@ class BookingController extends Controller
 
         return view('frontend.payment.invoice', compact('booking', 'payment'));
     }
+
+    
 }

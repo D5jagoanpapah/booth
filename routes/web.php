@@ -29,8 +29,9 @@ Route::get('booth/booking/{booking}', [BookingController::class, 'invoice'])->na
 
 
 // admin page -- payment 
-Route::get('payment', [PaymentController::class, 'index'])->name('payment');
 Route::post('payment/finish', [PaymentController::class, 'finish'])->name('payment.finish');
+Route::get('payment', [PaymentController::class, 'index'])->name('payment');
+Route::get('payment/{payment}/detail_booking', [PaymentController::class, 'detail_booking'])->name('payment.detail_booking');
 
 // Payment - landing page 
 Route::get('about', [FrontendController::class, 'about'])->name('booth.about');

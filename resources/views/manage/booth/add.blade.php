@@ -27,6 +27,19 @@
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
            </div>
+
+          <div class="mb-3">
+            <label for="" class="col-form-label">Kategori</label>
+            <select name="category_id" id="" class="form-select  @error('category_id') is-invalid @enderror">
+                <option value="" hidden>Pilih Kategori</option>
+                @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            @error('category_id')
+              <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+           </div>
            
            <div class="mb-3">
              <label for="exampleFormControlInput1" class="form-label">Nama Booth</label>
