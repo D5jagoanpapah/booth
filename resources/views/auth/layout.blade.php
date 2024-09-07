@@ -50,17 +50,19 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="/assets/manage/assets/js/config.js"></script>
+    {{-- sweetalert2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
       .line{
         position: relative;
         height: 2px;
         width: 100%;
-        margin: 20px 0;
+        margin: 30px 0;
         background-color: rgb(206, 206, 206);
       }
 
       .line::before{
-        content: 'OR';
+        content: 'Atau';
         position: absolute;
         top: 50%;
         left: 50%;
@@ -78,7 +80,9 @@
       }
 
       a.google{
-        padding: 10px 90px;
+        display: block;
+        width: 100%;
+        padding: 10px 0;
         border: 1px solid #CACACA;
         border-radius: 5px;
       }
@@ -119,5 +123,8 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    @stack('script')
+    @include('components.alert')
   </body>
 </html>

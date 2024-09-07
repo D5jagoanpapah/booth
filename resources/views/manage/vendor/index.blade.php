@@ -24,7 +24,7 @@
             <tr>
               <td>{{ $vendor->user->name }}</td>
               <td>{{ $vendor->company_name }}</td>
-              <td>{{ $vendor->address->address . ', ' . $vendor->address->district . ', '. $vendor->address->city->type . '. '.  $vendor->address->city->name .', '. $vendor->address->province->name }}</td>
+              <td>{{ $vendor->address?->address . ', ' . $vendor->address?->district . ', '. $vendor->address?->city->type . '. '.  $vendor->address?->city->name .', '. $vendor->address?->province->name }}</td>
               <td>{{ $vendor->contact_number }}</td>
               <td>
                 <div class="d-flex gap-2">

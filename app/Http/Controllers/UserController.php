@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
-use App\Models\Province;
 use App\Models\User;
+use App\Models\Vendor;
 use App\Models\Address;
-use App\Models\UserDetail;
+use App\Models\Province;
 use Illuminate\View\View;
+use App\Models\UserDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -40,8 +41,11 @@ class UserController extends Controller
         $user->password = $request->password;
         $user->save();
 
-        // $vendor = new Vendor();
-        // $vendor->user_id = $user->id;
+        $vendor = new Vendor();
+        $vendor->user_id = $user->id;
+        $vendor->company_name = $request->company_name;
+        $vendor->address_id = $request->id;
+        $vendor->contact_number = $request->contact_number;
 
 
         if ($file = $request->file('ktp_image_url')) {
@@ -106,7 +110,7 @@ class UserController extends Controller
         $province_id = $request->province_id;
         $cities = City::where('province_id', $province_id)->get();
 
-        $options = '';
+        $options = '<option value="" hidden>Pilih Kota/Kabupaten</option>';
 
         foreach ($cities as $city) {
             $options .= '<option value="' . $city->id . '">' . $city->type . '. ' . $city->name . '</option>';
@@ -116,5 +120,21 @@ class UserController extends Controller
             'success' => true,
             'data' => $options
         ]);
+    }
+
+    public function verify_ktp(User $user, $type)
+    {
+        if ($type == 'acc') {
+            $user->user_detail->ktp_is_verified = '1';
+        } else if ($type == 'reject') {
+            Storage::disk()->delete($user->user_detail->ktp_image_url);
+            $user->user_detail->ktp_is_verified = '0';
+            $user->user_detail->ktp_image_url = null;
+        } else {
+            return back()->withError('Invalid request!');
+        }
+
+        $user->user_detail->update();
+        return back()->withSuccess('KTP berhasil di' . $type);
     }
 }

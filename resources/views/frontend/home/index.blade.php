@@ -36,14 +36,15 @@
         </button>
     </div>
 
-    <!-- Search Bar -->
-    <div class="search-bar d-flex justify-content-center mt-4">
+      <!-- Search Bar -->
+      <div class="search-bar d-flex justify-content-center mt-4">
         <div class="input-group" style="max-width: 600px; width: 100%;">
             <input type="text" class="form-control" placeholder="Cari lokasi, kota, provinsi...">
-            <button class="btn btn-custom text-white" type="button"><i class="bi bi-search"></i></button>
+            <button class="btn btn-custom text-white search-button"  type="button"><i class="bi bi-search "></i></button>
         </div>
     </div>
 </div>
+
 <!-- Produk -->
 <div class="container py-5">
     <h2 class="mb-3 fw-bold">Booth Disewakan</h2>

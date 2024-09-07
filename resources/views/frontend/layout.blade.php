@@ -23,6 +23,9 @@
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
     data-client-key="{{ config('midtrans.client_key') }}"></script>
 <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
+
+ {{-- sweetalert2 --}}
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -31,7 +34,7 @@
     
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-white shadow-sm py-4 fixed-top">
-        <div class="container-fluid">
+        <div class="container">
             <a class="navbar-brand fw-bold" href="#">BRO<span style="color:#008080;">BOOTH</span>.</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,22 +47,20 @@
                     <li class="nav-item">
                         <a class="nav-link custom-nav color-primary" aria-current="page" href="{{ route('booth.about') }}">About</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    {{-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle custom-nav color-primary" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Produk
                         </a>
                         <ul class="dropdown-menu">
-                            {{-- @foreach ($categories as $category) --}}
                             <li><a class="dropdown-item custom-nav color-primary" href="">Booth </a></li>
-                            {{-- @endforeach --}}
                           
 
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
                 <ul class="nav">
                     <li class="nav-item ms-auto">
-                        <a class="nav-link color-primary btn btn-custom text-white rounded-5" href="/login"><i class="bi bi-person-circle"></i> Log-in</a>
+                        <a class="nav-link color-primary btn btn-custom text-white rounded-5" href="/login"><i class="bi bi-person-circle"></i> Log In / Register</a>
                     </li>
                 </ul>
             </div>
@@ -111,6 +112,7 @@
     <script src="../../../public/assets/frontend/js/custom.js"></script>
 
     @stack('script')
+    @include('components.alert')
 </body>
 
 </html>

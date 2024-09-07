@@ -14,7 +14,7 @@
             <tr>
               <th>Nama</th>
               <th>Email</th>
-
+              <th>KTP</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -23,6 +23,25 @@
             <tr>
               <td><i class="fab fa-angular fa-lg text-danger me-3"></i>{{ $user->name }}</td>
               <td>{{ $user->email }}</td>
+              <td>
+                @if($user->user_detail?->ktp_image_url)
+               <div class="d-flex flex-column">
+                <a href="{{ Storage::url($user->user_detail->ktp_image_url) }}" target="_blank">
+                  <img src="{{ Storage::url($user->user_detail->ktp_image_url) }}" width="100" alt="">
+                </a>
+               <div class="d-flex align-items-center gap-2 mt-2">
+                @if ($user->user_detail->ktp_is_verified == '0')
+                <a href="{{ route('user.verify_ktp', [$user->id, 'acc']) }}" class="btn btn-success btn-sm" onclick="return confirm('Apakah anda yakin untuk Acc KTP ini?')">Acc</a>
+                @else
+                <span class="text-success"><i class="bx bx-check-circle"></i> Acc</span>
+                @endif
+                <a href="{{ route('user.verify_ktp', [$user->id, 'reject']) }}" class="btn btn-danger btn-sm" onclick="return confirm('Apakah anda yakin untuk Reject KTP ini?')">Reject</a>
+               </div>
+               </div>
+                @else
+                <span class="text-danger"><i class="bx bx-close"></i> Belum upload</span>
+                @endif
+              </td>
               <td>
                 <div class="d-flex gap-2">
                   <a class="btn btn-info btn-sm" href="{{ route('user.address.index', $user->id) }}"

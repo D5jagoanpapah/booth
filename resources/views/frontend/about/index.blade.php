@@ -20,7 +20,7 @@
     <div class="row align-items-center">
         <div class="col-12 col-md-6">
             <!-- Placeholder Image -->
-            <img src="https://via.placeholder.com/600x400.png?text=Foto+Bertiga" alt="Foto Bertiga" class="img-fluid rounded shadow-sm">
+            <img src="assets/frontend/images/potooo.jpg" alt="Foto Bertiga" class="img-fluid rounded shadow-sm">
         </div>
         <div class="col-12 col-md-6">
             <h1 class="fw-bold color-primary">Tentang Kami</h1>
